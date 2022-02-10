@@ -11,5 +11,5 @@ group :development, :test do
   gem "sinatra"
   gem "capybara"
 #  gem "webrick"
-#  gem "sinatra-contrib"
+  gem "sinatra-contrib"
 end  

@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+# require 'sinatra/reloader' if development?
 
 class Battle < Sinatra::Base
   configure :development do
@@ -8,7 +9,15 @@ class Battle < Sinatra::Base
 
   # our routes would go here
   get '/' do
-    'Hello Battle'
+    # 'Testing infrastructure working!'
+    erb :index
+  end
+
+  post '/names' do
+    p params
+    @player1 = params[:player1]
+    @player2 = params[:player2]
+    erb :play
   end
 
 

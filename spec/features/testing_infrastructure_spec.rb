@@ -1,4 +1,4 @@
-require_relative '../app.rb'
+#require_relative '.../app.rb'
 
 feature 'Testing infrastructure' do
   scenario 'Can run app and check page content' do
