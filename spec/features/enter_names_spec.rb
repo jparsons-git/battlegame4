@@ -7,10 +7,7 @@ feature 'Testing entry and display of players names' do
     end
 
     scenario 'Test basic content when loading screen' do
-      visit('/')
-      fill_in 'player1', with: 'Trushna'
-      fill_in 'player2', with: 'Jane'
-      click_on 'Submit'
+      sign_in_and_play
       expect(page).to have_content 'Player 1 is Trushna'
       expect(page).to have_content 'Jane'
     end
