@@ -29,11 +29,12 @@ class Battle < Sinatra::Base
 
   get '/play' do
     # Jane and Trushna's way
-    # @player1 = $player1
-    # @player2 = $player2
+    @player1 = $player1
+    @player2 = $player2
     # The walkthrough way
-    @player1 = $player1.name
-    @player2 = $player2.name
+    # @player1 = $player1.name
+    # @player2 = $player2.name
+    # @player2.hp = $player2.hp
     erb :play
   end
 
@@ -42,8 +43,9 @@ class Battle < Sinatra::Base
     # @player1 = $player1
     # @player2 = $player2
     # The walkthrough way
-    @player1 = $player1.name
-    @player2 = $player2.name
+    @player1 = $player1
+    @player2 = $player2
+    @player1.attack(@player2)
     erb :attack
   end
 

@@ -1,1 +1,9 @@
-<h1><%= @player1 %> attacked <%= @player2 %></h1>
+
+<h1><%= @player1.name %> attacked <%= @player2.name %></h1>
+
+<h3>Player 1 is <%= @player1.name %>: <%= @player1.hp %>HP</h3>
+<h3>Player 2 is <%= @player2.name %>: <%= @player2.hp %>HP</h3>
+
+<form action="/attack" method="post">
+  <input type="submit" value="re-attack">
+</form>
