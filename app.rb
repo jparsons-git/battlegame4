@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require_relative './lib/player.rb'
 # require 'sinatra/reloader' if development?
 
 class Battle < Sinatra::Base
