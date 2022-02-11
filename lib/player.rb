@@ -8,9 +8,9 @@ class Player
       @hp = hp
     end  
 
-    def attack(player)
-      player.hp -= 10
-      return player
-    end  
+    # def attack(player)
+    #   player.hp -= 10
+    #   return player
+    # end  
     
 end  

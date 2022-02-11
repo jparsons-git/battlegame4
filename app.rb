@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative './lib/player.rb'
+require_relative './lib/game.rb'
 # require 'sinatra/reloader' if development?
 
 class Battle < Sinatra::Base
@@ -45,7 +46,9 @@ class Battle < Sinatra::Base
     # The walkthrough way
     @player1 = $player1
     @player2 = $player2
-    @player1.attack(@player2)
+    $game = Game.new 
+    $game.attack(@player2) 
+    #@player1.attack(@player2)
     erb :attack
   end
 
