@@ -19,36 +19,37 @@ class Battle < Sinatra::Base
 
   post '/names' do
     p params
-    # Jane and Trushna's way
-    # $player1 = params[:player1]
-    # $player2 = params[:player2]
-    # The walkthrough way
-    $player1 = Player.new(params[:player1])
-    $player2 = Player.new(params[:player2])
+    # Here we're making the global variables of class Player
+    # $player1 = Player.new(params[:player1])
+    # $player2 = Player.new(params[:player2])
+    # And here we're making the global variable of class Game
+    # THIS
+    $game = Game.new(Player.new(params[:player1]), Player.new(params[:player2]))
+    # OR THIS
+    player1 = Player.new(params[:player1])
+    player2 = Player.new(params[:player2])
+    $game = Game.new(player1, player2)
     redirect '/play'
   end
 
   get '/play' do
     # Jane and Trushna's way
-    @player1 = $player1
-    @player2 = $player2
-    # The walkthrough way
-    # @player1 = $player1.name
-    # @player2 = $player2.name
-    # @player2.hp = $player2.hp
+    # @player1 = $player1
+    # @player2 = $player2
+    # Alter the above to pass @game in
+    @game = $game
     erb :play
   end
 
   post '/attack' do 
-    # Jane and Trushna's way
-    # @player1 = $player1
-    # @player2 = $player2
-    # The walkthrough way
-    @player1 = $player1
-    @player2 = $player2
-    $game = Game.new 
-    $game.attack(@player2) 
-    #@player1.attack(@player2)
+    # Previous way
+    #@player1 = $player1
+    #@player2 = $player2
+    #$game = Game.new(@player1, @player2) 
+    #$game.attack(@player2)
+    # code the new Game class way
+    @game = $game
+    @game.attack(@game.player2)
     erb :attack
   end
 

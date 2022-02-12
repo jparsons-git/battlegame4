@@ -1,7 +1,7 @@
 
 class Player
-    attr_accessor :name
-    attr_accessor :hp
+  attr_accessor :name
+  attr_accessor :hp
   
     def initialize(name, hp = 60)
       @name = name
