@@ -49,7 +49,8 @@ class Battle < Sinatra::Base
     #$game.attack(@player2)
     # code the new Game class way
     @game = $game
-    @game.attack(@game.player2)
+    @game.attack(@game.opponent_player) # player2 is always the opponent
+    @game.switch_turns
     erb :attack
   end
 
